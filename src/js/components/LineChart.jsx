@@ -26,7 +26,6 @@ class LineChart extends Component {
   }
   getSvgY(y) {
     const { svgHeight } = this.props;
-    console.log(this.getMaxY());
     return svgHeight - ((y / this.getMaxY()) * svgHeight) + 100;
   }
 
@@ -64,14 +63,13 @@ class LineChart extends Component {
   render() {
     return (
       <svg viewBox={`0 0 ${this.props.svgWidth} ${this.props.svgHeight}`}>
-        {this.makePath()}
+        {this.props.data.length && this.makePath()}
       </svg>
     );
   }
 }
 
 LineChart.defaultProps = {
-  data: [],
   color: '#2196F3',
   svgHeight: 300,
   svgWidth: 700
