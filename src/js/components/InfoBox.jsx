@@ -19,6 +19,10 @@ export default class InfoBox extends Component {
   }
 
   processData() {
+    if (!this.props.transactions) {
+      return true;
+    }
+
     const transArr = this.props.transactions.transactions;
     // re-order array by asc
     const sortedTransactions = transArr.sort((prev, cur) => {
@@ -48,7 +52,7 @@ export default class InfoBox extends Component {
           </main>
           <footer>
             <div className='graph'>
-              {this.props.transactions && <LineChart data={this.processData()} />}
+              <LineChart data={this.processData()} />
             </div>
             <div className='update-stat'>
               <em>{`updated ${humanizeDuration(timeDiff)} ago`}</em>
