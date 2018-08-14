@@ -18,8 +18,11 @@ html {
  * Global layout stuff
  */
 
-html {
-  background-color: #eee;
+body {
+  font-family: $theme-font;
+  line-height: 1.5;
+  color: #cfd2da;
+  text-align: left;
+  background-color: $body-color;
+  padding: 50px 0;
 }
-
-div#react-root {}
